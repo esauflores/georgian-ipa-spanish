@@ -25,6 +25,7 @@ class Entry:
             not isinstance(tag, str) or not tag.strip() for tag in self.tags
         ):
             raise ValueError("Las etiquetas deben ser textos no vacíos.")
+
         tags = tuple(dict.fromkeys(tag.strip().lower() for tag in self.tags))
         object.__setattr__(self, "tags", tags)
 
@@ -35,9 +36,7 @@ class Entry:
 
 def search_key(value: str) -> str:
     """Ignore case and Spanish vowel accents while preserving ñ."""
-    return normalize("NFC", value.strip().casefold()).translate(
-        str.maketrans("áéíóúü", "aeiouu")
-    )
+    return normalize("NFC", value.strip().casefold()).translate(str.maketrans("áéíóúü", "aeiouu"))
 
 
 class Dictionary:
@@ -46,20 +45,18 @@ class Dictionary:
     def __init__(self, entries: Iterable[Entry] = ()):
         self.entries = list(entries)
 
-    def search(
-        self, query: str | None = None, tag: str | None = None
-    ) -> Iterator[Entry]:
+    def search(self, query: str | None = None, tag: str | None = None) -> Iterator[Entry]:
         """Yield entries matching the given text and tag."""
         key = search_key(query) if query is not None else None
         if key == "":
             return
+
         tag = tag.strip().lower() if tag is not None else None
+
         for entry in self.entries:
             if tag is not None and tag not in entry.tags:
                 continue
-            if key is None or any(
-                key in search_key(value) for value in (entry.georgian, entry.spanish)
-            ):
+            if key is None or any(key in search_key(value) for value in (entry.georgian, entry.spanish)):
                 yield entry
 
     def tags(self) -> list[str]:

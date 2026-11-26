@@ -24,13 +24,14 @@ class JsonStore:
 
     def save(self, entries: Iterable[Entry]) -> None:
         """Save entries without overwriting the previous file on write failure."""
-        data = json.dumps(
-            [asdict(entry) for entry in entries], ensure_ascii=False, indent=2
-        )
+        data = json.dumps([asdict(entry) for entry in entries], ensure_ascii=False, indent=2)
         temporary_path = None
         try:
             with NamedTemporaryFile(
-                mode="w", encoding="utf-8", dir=self.path.parent, delete=False
+                mode="w",
+                encoding="utf-8",
+                dir=self.path.parent,
+                delete=False,
             ) as temporary:
                 temporary_path = Path(temporary.name)
                 temporary.write(data + "\n")

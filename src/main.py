@@ -71,16 +71,19 @@ def create_app(path: Path = Path("entries.json")) -> FastAPI:
         """Add and save a phrase."""
         fields = data.model_dump()
         fields["ipa"] = fields["ipa"].strip("/").strip()
+
         try:
             entry = Entry(**fields)
         except ValueError as error:
             raise HTTPException(422, str(error)) from error
+
         try:
             with write_lock:
                 dictionary = load_dictionary()
                 store.save([*dictionary.entries, entry])
         except OSError as error:
             raise HTTPException(500, "No se pudo guardar el diccionario.") from error
+
         return entry
 
     return api

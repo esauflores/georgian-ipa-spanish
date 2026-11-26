@@ -76,9 +76,7 @@ def test_api_saves_and_reloads_a_new_entry(tmp_path):
     }
     assert client.post("/entries", json=entry).status_code == 201
     restarted = TestClient(create_app(path))
-    assert restarted.get("/entries", params={"q": "leche"}).json() == [
-        {**entry, "tags": []}
-    ]
+    assert restarted.get("/entries", params={"q": "leche"}).json() == [{**entry, "tags": []}]
 
 
 def test_api_rejects_missing_fields(tmp_path):
@@ -106,9 +104,7 @@ def test_api_saves_normalized_tags(tmp_path):
     }
     assert TestClient(create_app(path)).post("/entries", json=entry).status_code == 201
     entries = TestClient(create_app(path)).get("/entries", params={"tag": "food"})
-    assert {item["spanish"]: item["tags"] for item in entries.json()}["Leche"] == [
-        "food"
-    ]
+    assert {item["spanish"]: item["tags"] for item in entries.json()}["Leche"] == ["food"]
 
 
 def test_homepage_lists_phrases_and_escapes_new_entries(tmp_path):
