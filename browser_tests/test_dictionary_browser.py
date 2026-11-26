@@ -71,6 +71,12 @@ def test_language_switch_preserves_category_and_search(page, dictionary_url):
     expect(page.get_by_role("article")).to_have_count(1)
     expect(page.get_by_role("article")).to_contain_text(re.compile("repeat", re.IGNORECASE))
     expect(page.get_by_role("link", name="Communication", exact=True)).to_have_attribute("aria-current", "true")
+    categories = page.get_by_role("navigation", name="Categories")
+    expect(categories.get_by_role("link")).to_have_text(["All", "Communication"])
+    page.get_by_role("searchbox").fill("no matching phrase")
+    page.get_by_role("button", name="Search", exact=True).click()
+    expect(categories.get_by_role("link")).to_have_text(["All"])
+    expect(page.get_by_text("No entries found.")).to_be_visible()
 
 
 @pytest.mark.parametrize("width", [320, 390, 430])
