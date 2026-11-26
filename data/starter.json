@@ -464,6 +464,54 @@
     "english_pronunciation": "k’leh-oh-bah"
   },
   {
+    "georgian": "ნაბიჭვარო",
+    "spanish": "¡Bastardo! (insulto fuerte)",
+    "ipa": "nɑbit͡ʃʼvɑrɔ",
+    "pronunciation": "na-bi-ch’va-ro",
+    "tags": [
+      "curse",
+      "slang"
+    ],
+    "english": "You bastard! (strong insult)",
+    "english_pronunciation": "nah-bee-ch’vah-roh"
+  },
+  {
+    "georgian": "დედამოტყნულო",
+    "spanish": "¡Malparido! (muy vulgar)",
+    "ipa": "dɛdɑmɔtʼqʼnulɔ",
+    "pronunciation": "de-da-mo-t’k’nu-lo",
+    "tags": [
+      "curse",
+      "slang"
+    ],
+    "english": "Motherfucker! (very vulgar)",
+    "english_pronunciation": "deh-dah-moh-t’k’noo-loh"
+  },
+  {
+    "georgian": "ბოზიშვილო",
+    "spanish": "¡Hijo de puta! (muy vulgar)",
+    "ipa": "bɔziʃvilɔ",
+    "pronunciation": "bo-zi-shvi-lo",
+    "tags": [
+      "curse",
+      "slang"
+    ],
+    "english": "You son of a bitch! (very vulgar)",
+    "english_pronunciation": "boh-zee-shvee-loh"
+  },
+  {
+    "georgian": "შენ დედას შევეცი!",
+    "spanish": "¡Me cago en tu madre! (insulto familiar extremo)",
+    "ipa": "ʃɛn dɛdɑs ʃɛvɛt͡sʰi",
+    "pronunciation": "shen de-das she-ve-tsi",
+    "tags": [
+      "curse",
+      "slang"
+    ],
+    "english": "I fucked your mother! (extreme family insult)",
+    "english_pronunciation": "shehn deh-dahs sheh-veh-tsee"
+  },
+  {
     "georgian": "მევასება",
     "spanish": "Me gusta (coloquial)",
     "ipa": "mɛvɑsɛbɑ",
