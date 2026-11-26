@@ -145,9 +145,10 @@ def render_card(entry: Entry, show_tags: bool, lang: str) -> str:
 def render_page(dictionary: Dictionary, query: str, selected_tag: str, lang: Literal["es", "en"]) -> str:
     """Render search controls and the matching entries."""
     copy = COPY[lang]
-    entries = list(dictionary.search(query or None, selected_tag or None, lang=lang))
+    matches = list(dictionary.search(query or None, lang=lang))
+    entries = [entry for entry in matches if not selected_tag or selected_tag in entry.tags]
 
-    tags = dictionary.tags()
+    tags = sorted({tag for entry in matches for tag in entry.tags})
     categories = [
         "",
         *(tag for tag in ("greetings", "basics", "numbers") if tag in tags),
