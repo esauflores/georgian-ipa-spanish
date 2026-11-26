@@ -1,0 +1,329 @@
+[
+  {
+    "georgian": "გამარჯობა",
+    "spanish": "Hola",
+    "ipa": "ɡɑmɑrd͡ʒɔbɑ",
+    "pronunciation": "ga-mar-dyo-ba",
+    "tags": [
+      "greetings"
+    ]
+  },
+  {
+    "georgian": "მადლობა",
+    "spanish": "Gracias",
+    "ipa": "mɑdlɔbɑ",
+    "pronunciation": "mad-lo-ba",
+    "tags": [
+      "basics"
+    ]
+  },
+  {
+    "georgian": "კი",
+    "spanish": "Sí",
+    "ipa": "kʼi",
+    "pronunciation": "k’i",
+    "tags": [
+      "basics"
+    ]
+  },
+  {
+    "georgian": "არა",
+    "spanish": "No",
+    "ipa": "ɑrɑ",
+    "pronunciation": "a-ra",
+    "tags": [
+      "basics"
+    ]
+  },
+  {
+    "georgian": "კარგი",
+    "spanish": "Está bien / OK",
+    "ipa": "kʼɑrɡi",
+    "pronunciation": "k’ar-gui",
+    "tags": [
+      "basics"
+    ]
+  },
+  {
+    "georgian": "ბოდიში",
+    "spanish": "Perdón",
+    "ipa": "bɔdiʃi",
+    "pronunciation": "bo-di-shi",
+    "tags": [
+      "basics"
+    ]
+  },
+  {
+    "georgian": "უკაცრავად",
+    "spanish": "Disculpe",
+    "ipa": "ukʼɑt͡srɑvɑd",
+    "pronunciation": "u-k’a-tsra-vad",
+    "tags": [
+      "basics"
+    ]
+  },
+  {
+    "georgian": "ნახვამდის",
+    "spanish": "Adiós",
+    "ipa": "nɑxvɑmdis",
+    "pronunciation": "na-jvam-dis",
+    "tags": [
+      "greetings"
+    ]
+  },
+  {
+    "georgian": "როგორ ხართ?",
+    "spanish": "¿Cómo está?",
+    "ipa": "rɔɡɔr xɑrtʰ",
+    "pronunciation": "ro-gor jart",
+    "tags": [
+      "greetings"
+    ]
+  },
+  {
+    "georgian": "კარგად ვარ, მადლობა.",
+    "spanish": "Estoy bien, gracias.",
+    "ipa": "kʼɑrɡɑd vɑr mɑdlɔbɑ",
+    "pronunciation": "k’ar-gad var, mad-lo-ba",
+    "tags": [
+      "greetings"
+    ]
+  },
+  {
+    "georgian": "რა გქვიათ?",
+    "spanish": "¿Cómo se llama?",
+    "ipa": "rɑ ɡkʰviɑtʰ",
+    "pronunciation": "ra gkvi-at",
+    "tags": [
+      "introductions"
+    ]
+  },
+  {
+    "georgian": "მე მქვია …",
+    "spanish": "Me llamo…",
+    "ipa": "mɛ mkʰviɑ",
+    "pronunciation": "me mkvi-a",
+    "tags": [
+      "introductions"
+    ]
+  },
+  {
+    "georgian": "ქართული არ ვიცი.",
+    "spanish": "No hablo georgiano.",
+    "ipa": "kʰɑrtʰuli ɑr vit͡si",
+    "pronunciation": "kar-tu-li ar vi-tsi",
+    "tags": [
+      "communication"
+    ]
+  },
+  {
+    "georgian": "ვერ გავიგე.",
+    "spanish": "No entendí.",
+    "ipa": "vɛr ɡɑviɡɛ",
+    "pronunciation": "ver ga-vi-gue",
+    "tags": [
+      "communication"
+    ]
+  },
+  {
+    "georgian": "გაიმეორეთ, თუ შეიძლება.",
+    "spanish": "¿Puede repetir, por favor?",
+    "ipa": "ɡɑimɛɔrɛtʰ tʰu ʃɛid͡zlɛbɑ",
+    "pronunciation": "ga-i-me-o-ret, tu she-i-dzle-ba",
+    "tags": [
+      "communication"
+    ]
+  },
+  {
+    "georgian": "ეს რა არის?",
+    "spanish": "¿Qué es esto?",
+    "ipa": "ɛs rɑ ɑris",
+    "pronunciation": "es ra a-ris",
+    "tags": [
+      "basics"
+    ]
+  },
+  {
+    "georgian": "ეს რა ღირს?",
+    "spanish": "¿Cuánto cuesta esto?",
+    "ipa": "ɛs rɑ ɣirs",
+    "pronunciation": "es ra ghirs",
+    "tags": [
+      "shopping"
+    ]
+  },
+  {
+    "georgian": "სად არის ტუალეტი?",
+    "spanish": "¿Dónde está el baño?",
+    "ipa": "sɑd ɑris tʼuɑlɛtʼi",
+    "pronunciation": "sad a-ris t’u-a-le-t’i",
+    "tags": [
+      "directions"
+    ]
+  },
+  {
+    "georgian": "ერთი ყავა, თუ შეიძლება.",
+    "spanish": "Un café, por favor.",
+    "ipa": "ɛrtʰi qʼɑvɑ tʰu ʃɛid͡zlɛbɑ",
+    "pronunciation": "er-ti k’a-va, tu she-i-dzle-ba",
+    "tags": [
+      "food"
+    ]
+  },
+  {
+    "georgian": "ანგარიში, თუ შეიძლება.",
+    "spanish": "La cuenta, por favor.",
+    "ipa": "ɑnɡɑriʃi tʰu ʃɛid͡zlɛbɑ",
+    "pronunciation": "an-ga-ri-shi, tu she-i-dzle-ba",
+    "tags": [
+      "food"
+    ]
+  },
+  {
+    "georgian": "ყლე",
+    "spanish": "Pene (vulgar) / idiota (insulto)",
+    "ipa": "qʼlɛ",
+    "pronunciation": "k’le",
+    "tags": [
+      "curse",
+      "slang"
+    ]
+  },
+  {
+    "georgian": "ყლეო",
+    "spanish": "¡Idiota! (insulto muy vulgar)",
+    "ipa": "qʼlɛɔ",
+    "pronunciation": "k’le-o",
+    "tags": [
+      "curse",
+      "slang"
+    ]
+  },
+  {
+    "georgian": "ნაბოზარო, შეგეცი, ყლეო!",
+    "spanish": "¡Hijo de puta, que te jodan, imbécil! (muy vulgar)",
+    "ipa": "nɑbɔzɑrɔ ʃɛɡɛt͡si qʼlɛɔ",
+    "pronunciation": "na-bo-za-ro, she-gue-tsi, k’le-o",
+    "tags": [
+      "curse",
+      "slang"
+    ]
+  },
+  {
+    "georgian": "მე მევასება",
+    "spanish": "Me gusta (coloquial)",
+    "ipa": "mɛ mɛvɑsɛbɑ",
+    "pronunciation": "me me-va-se-ba",
+    "tags": [
+      "slang"
+    ]
+  },
+  {
+    "georgian": "მაგრად",
+    "spanish": "Mucho / un montón (coloquial)",
+    "ipa": "mɑɡrɑd",
+    "pronunciation": "ma-grad",
+    "tags": [
+      "slang"
+    ]
+  },
+  {
+    "georgian": "მაგარია!",
+    "spanish": "¡Está genial! / ¡Qué bueno!",
+    "ipa": "mɑɡɑriɑ",
+    "pronunciation": "ma-ga-ri-a",
+    "tags": [
+      "slang"
+    ]
+  },
+  {
+    "georgian": "ერთი",
+    "spanish": "Uno (1)",
+    "ipa": "ɛrtʰi",
+    "pronunciation": "er-ti",
+    "tags": [
+      "numbers"
+    ]
+  },
+  {
+    "georgian": "ორი",
+    "spanish": "Dos (2)",
+    "ipa": "ɔri",
+    "pronunciation": "o-ri",
+    "tags": [
+      "numbers"
+    ]
+  },
+  {
+    "georgian": "სამი",
+    "spanish": "Tres (3)",
+    "ipa": "sɑmi",
+    "pronunciation": "sa-mi",
+    "tags": [
+      "numbers"
+    ]
+  },
+  {
+    "georgian": "ოთხი",
+    "spanish": "Cuatro (4)",
+    "ipa": "ɔtʰxi",
+    "pronunciation": "o-tji",
+    "tags": [
+      "numbers"
+    ]
+  },
+  {
+    "georgian": "ხუთი",
+    "spanish": "Cinco (5)",
+    "ipa": "xutʰi",
+    "pronunciation": "ju-ti",
+    "tags": [
+      "numbers"
+    ]
+  },
+  {
+    "georgian": "ექვსი",
+    "spanish": "Seis (6)",
+    "ipa": "ɛkʰvsi",
+    "pronunciation": "e-kvsi",
+    "tags": [
+      "numbers"
+    ]
+  },
+  {
+    "georgian": "შვიდი",
+    "spanish": "Siete (7)",
+    "ipa": "ʃvidi",
+    "pronunciation": "shvi-di",
+    "tags": [
+      "numbers"
+    ]
+  },
+  {
+    "georgian": "რვა",
+    "spanish": "Ocho (8)",
+    "ipa": "rvɑ",
+    "pronunciation": "rva",
+    "tags": [
+      "numbers"
+    ]
+  },
+  {
+    "georgian": "ცხრა",
+    "spanish": "Nueve (9)",
+    "ipa": "t͡sxrɑ",
+    "pronunciation": "tsjra",
+    "tags": [
+      "numbers"
+    ]
+  },
+  {
+    "georgian": "ათი",
+    "spanish": "Diez (10)",
+    "ipa": "ɑtʰi",
+    "pronunciation": "a-ti",
+    "tags": [
+      "numbers"
+    ]
+  }
+]
