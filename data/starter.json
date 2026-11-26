@@ -11,6 +11,17 @@
     "english_pronunciation": "gah-mahr-joh-bah"
   },
   {
+    "georgian": "პატარა",
+    "spanish": "Pequeño / pequeña",
+    "ipa": "pʼɑtʼɑrɑ",
+    "pronunciation": "p’a-t’a-ra",
+    "tags": [
+      "basics"
+    ],
+    "english": "Small / little",
+    "english_pronunciation": "p’ah-t’ah-rah"
+  },
+  {
     "georgian": "მადლობა",
     "spanish": "Gracias",
     "ipa": "mɑdlɔbɑ",
@@ -265,6 +276,192 @@
     ],
     "english": "You bastard, fuck you, you dick! (very vulgar)",
     "english_pronunciation": "nah-boh-zah-roh, sheh-geh-tsee, k’leh-oh"
+  },
+  {
+    "georgian": "შეჩემა",
+    "spanish": "¡Güey! (vulgar; entre amigos íntimos)",
+    "ipa": "ʃɛt͡ʃʰɛmɑ",
+    "pronunciation": "she-che-ma",
+    "tags": [
+      "slang"
+    ],
+    "english": "Dude! (vulgar; between close friends)",
+    "english_pronunciation": "sheh-cheh-mah"
+  },
+  {
+    "georgian": "ჭუჭუ ბიჭი",
+    "spanish": "«Ch’u-ch’u bi-ch’i» (frase oída, uso como insulto sin confirmar). ჭუჭუ: pito (infantil); ბიჭი: chico.",
+    "ipa": "t͡ʃʼut͡ʃʼu bit͡ʃʼi",
+    "pronunciation": "ch’u-ch’u bi-ch’i",
+    "tags": [
+      "slang"
+    ],
+    "english": "“Ch’u-ch’u bi-ch’i” (heard phrase, use as an insult unverified). ჭუჭუ: willy; ბიჭი: boy.",
+    "english_pronunciation": "ch’oo-ch’oo bee-ch’ee"
+  },
+  {
+    "georgian": "ბალაყანა",
+    "spanish": "Pito enorme / verga enorme (jerga vulgar, a menudo exagerada)",
+    "ipa": "bɑlɑqʼɑnɑ",
+    "pronunciation": "ba-la-k’a-na",
+    "tags": [
+      "slang"
+    ],
+    "english": "Huge dick (vulgar slang, often an exaggeration)",
+    "english_pronunciation": "bah-lah-k’ah-nah"
+  },
+  {
+    "georgian": "ცუღლუტო",
+    "spanish": "¡Travieso! (puede ser cariñoso)",
+    "ipa": "t͡sʰuɣlutʼɔ",
+    "pronunciation": "tsu-ghlu-to",
+    "tags": [
+      "slang"
+    ],
+    "english": "You little rascal! (can be affectionate)",
+    "english_pronunciation": "tsoo-ghloo-toh"
+  },
+  {
+    "georgian": "ჟმოტო",
+    "spanish": "¡Tacaño! (coloquial)",
+    "ipa": "ʒmɔtʼɔ",
+    "pronunciation": "zhmo-to",
+    "tags": [
+      "slang"
+    ],
+    "english": "You cheapskate! (slang)",
+    "english_pronunciation": "zhmoh-toh"
+  },
+  {
+    "georgian": "წუწურაქო",
+    "spanish": "¡Tacaño! / ¡Agarrado!",
+    "ipa": "t͡sʼut͡sʼurɑkʰɔ",
+    "pronunciation": "ts’u-ts’u-ra-ko",
+    "tags": [
+      "slang"
+    ],
+    "english": "You penny-pincher!",
+    "english_pronunciation": "ts’oo-ts’oo-rah-khoh"
+  },
+  {
+    "georgian": "ნაბოზარო",
+    "spanish": "¡Hijo de puta! (muy vulgar)",
+    "ipa": "nɑbɔzɑrɔ",
+    "pronunciation": "na-bo-za-ro",
+    "tags": [
+      "curse",
+      "slang"
+    ],
+    "english": "You son of a bitch! (very vulgar)",
+    "english_pronunciation": "nah-boh-zah-roh"
+  },
+  {
+    "georgian": "გააჯვი!",
+    "spanish": "¡Vete a la mierda! (muy vulgar)",
+    "ipa": "ɡɑɑd͡ʒvi",
+    "pronunciation": "ga-a-dzhvi",
+    "tags": [
+      "curse",
+      "slang"
+    ],
+    "english": "Fuck off! (very vulgar)",
+    "english_pronunciation": "gah-ah-jvee"
+  },
+  {
+    "georgian": "შეგეცი!",
+    "spanish": "¡Que te jodan! (muy vulgar)",
+    "ipa": "ʃɛɡɛt͡sʰi",
+    "pronunciation": "she-gue-tsi",
+    "tags": [
+      "curse",
+      "slang"
+    ],
+    "english": "Fuck you! (very vulgar)",
+    "english_pronunciation": "sheh-geh-tsee"
+  },
+  {
+    "georgian": "გოთვერანო",
+    "spanish": "¡Cabrón! / ¡Desgraciado! (vulgar)",
+    "ipa": "ɡɔtʰvɛrɑnɔ",
+    "pronunciation": "go-tve-ra-no",
+    "tags": [
+      "curse",
+      "slang"
+    ],
+    "english": "You scumbag! (vulgar)",
+    "english_pronunciation": "goh-tveh-rah-noh"
+  },
+  {
+    "georgian": "ჩაჯმულო",
+    "spanish": "¡Cagón! (vulgar, por cobarde)",
+    "ipa": "t͡ʃʰɑd͡ʒmulɔ",
+    "pronunciation": "cha-dzhmu-lo",
+    "tags": [
+      "curse",
+      "slang"
+    ],
+    "english": "You chicken-shit! (vulgar)",
+    "english_pronunciation": "chah-jmoo-loh"
+  },
+  {
+    "georgian": "ყლეთაყლე",
+    "spanish": "Pendejo de mierda (sustantivo muy vulgar y enfático)",
+    "ipa": "qʼlɛtʰɑqʼlɛ",
+    "pronunciation": "k’le-ta-k’le",
+    "tags": [
+      "curse",
+      "slang"
+    ],
+    "english": "Complete fucking dickhead (very vulgar noun)",
+    "english_pronunciation": "k’leh-tah-k’leh"
+  },
+  {
+    "georgian": "ბოზო",
+    "spanish": "¡Puta! (insulto sexual muy ofensivo)",
+    "ipa": "bɔzɔ",
+    "pronunciation": "bo-zo",
+    "tags": [
+      "curse",
+      "slang"
+    ],
+    "english": "Whore! (highly offensive insult)",
+    "english_pronunciation": "boh-zoh"
+  },
+  {
+    "georgian": "შიგ ხომ არ გაქვს?",
+    "spanish": "¿Estás loco o qué, carajo? (muy vulgar)",
+    "ipa": "ʃiɡ xɔm ɑr ɡɑkʰvs",
+    "pronunciation": "shig jom ar gaks",
+    "tags": [
+      "curse",
+      "slang"
+    ],
+    "english": "Are you out of your fucking mind? (very vulgar)",
+    "english_pronunciation": "sheeg khom ahr gahkvs"
+  },
+  {
+    "georgian": "ყლეზე მკიდია!",
+    "spanish": "¡Me importa un carajo! (muy vulgar)",
+    "ipa": "qʼlɛzɛ mkʼidiɑ",
+    "pronunciation": "k’le-ze m-k’i-di-a",
+    "tags": [
+      "curse",
+      "slang"
+    ],
+    "english": "I don't give a fuck! (very vulgar)",
+    "english_pronunciation": "k’leh-zeh m-k’ee-dee-ah"
+  },
+  {
+    "georgian": "ყლეობა",
+    "spanish": "Mierda / estupidez de mierda (muy vulgar)",
+    "ipa": "qʼlɛɔbɑ",
+    "pronunciation": "k’le-o-ba",
+    "tags": [
+      "curse",
+      "slang"
+    ],
+    "english": "Bullshit / fucking stupidity (very vulgar)",
+    "english_pronunciation": "k’leh-oh-bah"
   },
   {
     "georgian": "მევასება",

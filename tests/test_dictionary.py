@@ -46,7 +46,7 @@ def test_api_loads_starter_entries(tmp_path):
     client = TestClient(create_app(tmp_path / "entries.json"))
     response = client.get("/entries")
     assert response.status_code == 200
-    assert len(response.json()) == 38
+    assert len(response.json()) == 55
     assert all(entry["english"] and entry["english_pronunciation"] for entry in response.json())
 
 
@@ -89,7 +89,7 @@ def test_api_rejects_missing_fields(tmp_path):
 
 def test_api_combines_text_and_tag_filters(tmp_path):
     client = TestClient(create_app(tmp_path / "entries.json"))
-    assert len(client.get("/entries", params={"tag": "curse"}).json()) == 3
+    assert len(client.get("/entries", params={"tag": "curse"}).json()) == 13
     assert len(client.get("/entries", params={"tag": "numbers"}).json()) == 11
     matches = client.get("/entries", params={"q": "idiota", "tag": "curse"}).json()
     assert {entry["georgian"] for entry in matches} == {"ყლე", "ყლეო"}
@@ -122,7 +122,7 @@ def test_homepage_lists_phrases_and_escapes_new_entries(tmp_path):
     response = client.get("/")
     assert response.status_code == 200
     assert response.headers["content-type"].startswith("text/html")
-    assert response.text.count("<li>") == 39
+    assert response.text.count("<li>") == 56
     assert "გამარჯობა" in response.text
     assert "&lt;Leche&gt;" in response.text
     assert "<Leche>" not in response.text
@@ -186,3 +186,32 @@ def test_homepage_offers_audio_only_for_available_clips(tmp_path, monkeypatch):
     assert ">Listen</button>" in english.text
     assert ">Escuchar</button>" in spanish.text
     assert client.get("/static/audio.js").status_code == 200
+
+
+def test_shechema_has_searchable_bilingual_usage_guides(tmp_path):
+    client = TestClient(create_app(tmp_path / "entries.json"))
+    for lang, guide in (("es", "she-che-ma"), ("en", "sheh-cheh-mah")):
+        response = client.get("/", params={"q": "შეჩემა", "lang": lang, "tag": "slang"})
+        assert response.status_code == 200
+        assert response.text.count("<article") == 1
+        assert "vulgar" in response.text
+        assert f'aria-label="{guide}"' in response.text
+
+
+def test_strong_insults_replace_the_lighter_address_examples(tmp_path):
+    client = TestClient(create_app(tmp_path / "entries.json"))
+    assert client.get("/entries", params={"q": "სულელო"}).json() == []
+    response = client.get("/", params={"q": "გააჯვი", "lang": "en", "tag": "curse"})
+    assert response.status_code == 200
+    assert response.text.count("<article") == 1
+    assert "Fuck off! (very vulgar)" in response.text
+
+
+def test_curse_category_excludes_soft_slang_and_includes_stronger_entries(tmp_path):
+    client = TestClient(create_app(tmp_path / "entries.json"))
+    curse = {row["georgian"] for row in client.get("/entries", params={"tag": "curse"}).json()}
+    slang = {row["georgian"] for row in client.get("/entries", params={"tag": "slang"}).json()}
+    soft = {"შეჩემა", "ცუღლუტო", "ჟმოტო", "წუწურაქო"}
+    assert soft <= slang
+    assert not soft & curse
+    assert {"ყლეთაყლე", "შიგ ხომ არ გაქვს?"} <= curse
