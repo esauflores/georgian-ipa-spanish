@@ -215,3 +215,12 @@ def test_curse_category_excludes_soft_slang_and_includes_stronger_entries(tmp_pa
     assert soft <= slang
     assert not soft & curse
     assert {"ყლეთაყლე", "შიგ ხომ არ გაქვს?"} <= curse
+
+
+def test_read_only_deployment_serves_entries_without_a_write_route(tmp_path):
+    path = tmp_path / "entries.json"
+    client = TestClient(create_app(path, read_only=True))
+    assert client.get("/").status_code == 200
+    assert client.get("/entries").status_code == 200
+    assert client.post("/entries", json={}).status_code == 405
+    assert not path.exists()

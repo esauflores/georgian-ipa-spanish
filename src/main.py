@@ -1,5 +1,6 @@
 """Serve the Georgian–Spanish phrasebook with FastAPI."""
 
+import os
 from pathlib import Path
 from threading import Lock
 from typing import Annotated, Literal
@@ -30,7 +31,7 @@ class EntryInput(BaseModel):
     english_pronunciation: Text | None = None
 
 
-def create_app(path: Path = Path("entries.json")) -> FastAPI:
+def create_app(path: Path = Path("entries.json"), *, read_only: bool = False) -> FastAPI:
     """Create an API backed by the given dictionary file."""
     api = FastAPI(title="Georgian–Spanish IPA Dictionary")
     api.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
@@ -68,7 +69,6 @@ def create_app(path: Path = Path("entries.json")) -> FastAPI:
         """List the available tags."""
         return load_dictionary().tags()
 
-    @api.post("/entries", status_code=201, response_model=Entry)
     def add_entry(data: EntryInput):
         """Add and save a phrase."""
         fields = data.model_dump()
@@ -88,10 +88,13 @@ def create_app(path: Path = Path("entries.json")) -> FastAPI:
 
         return entry
 
+    if not read_only:
+        api.add_api_route("/entries", add_entry, methods=["POST"], status_code=201, response_model=Entry)
+
     return api
 
 
-app = create_app()
+app = create_app(read_only=os.environ.get("DICTIONARY_READ_ONLY") == "1")
 
 
 if __name__ == "__main__":

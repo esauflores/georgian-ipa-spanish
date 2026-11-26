@@ -1,0 +1,9 @@
+.git
+.env
+.venv/
+.piper/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+entries.json
+src/static/audio/
