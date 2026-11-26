@@ -191,18 +191,20 @@ def render_page(dictionary: Dictionary, query: str, selected_tag: str, lang: Lit
       <nav class="languages" aria-label="{copy["language"]}">{"".join(languages)}</nav>
     </header>
 
-    <form action="/" method="get" role="search">
-      <label for="query">{copy["search_label"]}</label>
-      <div class="search">
-        <input id="query" name="q" type="search" value="{escape(query)}"
-               placeholder="{copy["placeholder"]}" maxlength="200">
-        <input type="hidden" name="tag" value="{escape(selected_tag)}">
-        <input type="hidden" name="lang" value="{lang}">
-        <button type="submit">{copy["search"]}</button>
-      </div>
-    </form>
+    <div class="lookup">
+      <form action="/" method="get" role="search">
+        <label for="query">{copy["search_label"]}</label>
+        <div class="search">
+          <input id="query" name="q" type="search" value="{escape(query)}"
+                 placeholder="{copy["placeholder"]}" maxlength="200">
+          <input type="hidden" name="tag" value="{escape(selected_tag)}">
+          <input type="hidden" name="lang" value="{lang}">
+          <button type="submit">{copy["search"]}</button>
+        </div>
+      </form>
 
-    <nav aria-label="{copy["categories"]}">{"".join(filters)}</nav>
+      <nav class="categories" aria-label="{copy["categories"]}">{"".join(filters)}</nav>
+    </div>
 
     <section aria-labelledby="results-title">
       <h2 id="results-title">{escape(category_name)} <span>· {result_text}</span></h2>
