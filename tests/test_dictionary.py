@@ -186,3 +186,12 @@ def test_homepage_offers_audio_only_for_available_clips(tmp_path, monkeypatch):
     assert ">Listen</button>" in english.text
     assert ">Escuchar</button>" in spanish.text
     assert client.get("/static/audio.js").status_code == 200
+
+
+def test_read_only_deployment_serves_entries_without_a_write_route(tmp_path):
+    path = tmp_path / "entries.json"
+    client = TestClient(create_app(path, read_only=True))
+    assert client.get("/").status_code == 200
+    assert client.get("/entries").status_code == 200
+    assert client.post("/entries", json={}).status_code == 405
+    assert not path.exists()
