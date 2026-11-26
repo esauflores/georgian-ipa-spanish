@@ -347,3 +347,30 @@ section h2 span { color: var(--muted); font-size: .9rem; letter-spacing: 0; }
   .card-title { grid-template-columns: 1fr; }
   .listen { justify-self: start; }
 }
+
+.results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .5rem 1rem;
+}
+
+.audio-boost {
+  min-height: 2.5rem;
+  padding: .3rem .75rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--accent);
+  font-size: .875rem;
+}
+
+.audio-boost:hover,
+.audio-boost[aria-pressed="true"] {
+  border-color: var(--accent);
+}
+
+.audio-boost[aria-pressed="true"] {
+  background: var(--accent);
+  color: white;
+}

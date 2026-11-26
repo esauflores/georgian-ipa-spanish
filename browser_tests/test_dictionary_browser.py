@@ -117,3 +117,36 @@ def test_listen_loads_expected_clip_and_toggles_playback(page, dictionary_url):
     expect(button).to_have_attribute("aria-pressed", "false")
     assert page.evaluate("window.testAudio.paused")
     expect(page.get_by_role("status")).to_be_empty()
+
+
+def test_audio_boost_routes_playing_clip_through_gain_and_back(page, dictionary_url):
+    page.add_init_script("""
+        const connect = AudioNode.prototype.connect;
+        AudioNode.prototype.connect = function (destination, ...args) {
+          if (this instanceof MediaElementAudioSourceNode) {
+            window.testAudioRoute = {
+              kind: destination.constructor.name,
+              gain: destination.gain?.value,
+            };
+          }
+          return connect.call(this, destination, ...args);
+        };
+        """)
+    page.goto(f"{dictionary_url}/?tag=communication")
+    boost = page.get_by_role("button", name="Amplificar audio", exact=True)
+    expect(boost).to_have_attribute("aria-pressed", "false")
+    listen = page.get_by_role("button", name="Escuchar: ქართული არ ვიცი.", exact=True)
+    listen.click()
+    expect(listen).to_have_attribute("aria-pressed", "true")
+
+    boost.click()
+    expect(boost).to_have_attribute("aria-pressed", "true")
+    page.wait_for_function("window.testAudioRoute?.kind === 'GainNode' && window.testAudioRoute.gain === 3")
+
+    boost.click()
+    expect(boost).to_have_attribute("aria-pressed", "false")
+    page.wait_for_function("window.testAudioRoute?.kind === 'AudioDestinationNode'")
+    expect(listen).to_have_attribute("aria-pressed", "true")
+    listen.click()
+    expect(listen).to_have_attribute("aria-pressed", "false")
+    expect(page.get_by_role("status")).to_be_empty()

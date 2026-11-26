@@ -17,6 +17,7 @@ COPY = {
         "all": "Todas",
         "sound": "Cómo suena",
         "listen": "Escuchar",
+        "boost": "Amplificar audio",
         "audio_error": "No se pudo reproducir el audio.",
         "entry": "entrada",
         "entries": "entradas",
@@ -33,6 +34,7 @@ COPY = {
         "all": "All",
         "sound": "English pronunciation",
         "listen": "Listen",
+        "boost": "Boost audio",
         "audio_error": "The audio could not be played.",
         "entry": "entry",
         "entries": "entries",
@@ -207,7 +209,10 @@ def render_page(dictionary: Dictionary, query: str, selected_tag: str, lang: Lit
     </div>
 
     <section aria-labelledby="results-title">
-      <h2 id="results-title">{escape(category_name)} <span>· {result_text}</span></h2>
+      <div class="results-header">
+        <h2 id="results-title">{escape(category_name)} <span>· {result_text}</span></h2>
+        <button class="audio-boost" type="button" aria-pressed="false" hidden>{copy["boost"]}</button>
+      </div>
       <p class="audio-status" role="status" data-error="{copy["audio_error"]}"></p>
       {results}
     </section>
