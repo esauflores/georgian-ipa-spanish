@@ -267,3 +267,83 @@ dd {
 .audio-status:empty {
   margin: 0;
 }
+
+/* Search and the phrase list have distinct visual roles. */
+:root {
+  color: #241d2b;
+  background: #f7f3eb;
+  font-family: system-ui, sans-serif;
+  --accent: #a32134;
+  --line: #e4d9d1;
+  --surface: #fffdf9;
+  --muted: #625760;
+}
+
+main { max-width: 73rem; }
+header {
+  gap: .9rem 1.2rem;
+  margin-bottom: 1.35rem;
+  padding-bottom: 1.15rem;
+  border-bottom: 2px solid var(--accent);
+}
+h1 {
+  font-family: Georgia, "Noto Serif", serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -.045em;
+}
+.lookup {
+  padding: clamp(.9rem, 3vw, 1.5rem);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--surface);
+}
+input[type="search"] {
+  background: white;
+  border-width: 1px;
+  padding-inline: .9rem;
+}
+.search button {
+  border-width: 1px;
+  padding-inline: clamp(.65rem, 3vw, 1.25rem);
+}
+nav a { border-width: 1px; }
+.categories { gap: .45rem; }
+.categories a { font-size: .875rem; }
+section h2 {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: .4rem;
+  font-size: 1.3rem;
+  letter-spacing: -.025em;
+}
+section h2 span { color: var(--muted); font-size: .9rem; letter-spacing: 0; }
+.cards { gap: 1rem; }
+.card {
+  padding: clamp(1rem, 3vw, 1.35rem);
+  background: var(--surface);
+  border-width: 1px;
+  border-radius: .85rem;
+}
+.card-title {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: .75rem;
+}
+.card h3 { line-height: 1.25; }
+.meaning { color: var(--muted); }
+.card dl { gap: .85rem; }
+.listen {
+  min-height: 2.5rem;
+  white-space: nowrap;
+  border-radius: .65rem;
+  border-bottom-width: 1px;
+}
+
+.syllable { border-bottom-width: 1px; }
+@media (max-width: 380px) {
+  .card-title { grid-template-columns: 1fr; }
+  .listen { justify-self: start; }
+}

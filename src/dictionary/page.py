@@ -1,6 +1,7 @@
 """Render the dictionary as a server-side HTML page."""
 
 from html import escape
+from typing import Literal
 from urllib.parse import urlencode
 
 from .audio import AUDIO_DIR, clip_name
@@ -25,12 +26,12 @@ COPY = {
     },
     "en": {
         "title": "Georgian dictionary",
-        "search_label": "Search in Georgian or Spanish",
-        "placeholder": "e.g. gracias",
+        "search_label": "Search in Georgian or English",
+        "placeholder": "e.g. thank you",
         "search": "Search",
         "categories": "Categories",
         "all": "All",
-        "sound": "Spanish pronunciation",
+        "sound": "English pronunciation",
         "listen": "Listen",
         "audio_error": "The audio could not be played.",
         "entry": "entry",
@@ -89,15 +90,32 @@ def render_audio_button(entry: Entry, lang: str) -> str:
     )
 
 
+def render_pronunciation(label: str, pronunciation: str, lang: str) -> str:
+    """Render a phonetic guide as syllable tiles."""
+    words = []
+    for word in pronunciation.split():
+        syllables = (f'<span class="syllable">{escape(syllable)}</span>' for syllable in word.split("-") if syllable)
+        words.append(f'<span class="word">{"".join(syllables)}</span>')
+
+    return f"""
+            <div>
+              <dt>{label}</dt>
+              <dd class="syllables" lang="{lang}" aria-label="{escape(pronunciation)}">
+                <span class="words" aria-hidden="true">{" ".join(words)}</span>
+              </dd>
+            </div>
+    """
+
+
 def render_card(entry: Entry, show_tags: bool, lang: str) -> str:
     """Render an entry with its pronunciation and categories."""
     tags = "".join(f'<span class="tag">{escape(tag_label(tag, lang))}</span>' for tag in entry.tags if show_tags)
     tag_row = f'<div class="tags">{tags}</div>' if tags else ""
 
-    words = []
-    for word in entry.pronunciation.split():
-        syllables = (f'<span class="syllable">{escape(syllable)}</span>' for syllable in word.split("-") if syllable)
-        words.append(f'<span class="word">{"".join(syllables)}</span>')
+    meaning = entry.english if lang == "en" else entry.spanish
+    pronunciation = entry.english_pronunciation if lang == "en" else entry.pronunciation
+    meaning_markup = f'<p class="meaning" lang="{lang}">{escape(meaning)}</p>' if meaning else ""
+    guide = render_pronunciation(COPY[lang]["sound"], pronunciation, lang) if pronunciation else ""
 
     return f"""
       <li>
@@ -106,17 +124,12 @@ def render_card(entry: Entry, show_tags: bool, lang: str) -> str:
           <div class="card-title">
             <div class="card-text">
               <h3 lang="ka">{escape(entry.georgian)}</h3>
-              <p class="meaning" lang="es">{escape(entry.spanish)}</p>
+              {meaning_markup}
             </div>
             {render_audio_button(entry, lang)}
           </div>
           <dl>
-            <div>
-              <dt>{COPY[lang]["sound"]}</dt>
-              <dd class="syllables" lang="es" aria-label="{escape(entry.pronunciation)}">
-                <span class="words" aria-hidden="true">{" ".join(words)}</span>
-              </dd>
-            </div>
+            {guide}
             <div>
               <dt>IPA</dt>
               <dd class="ipa">/{escape(entry.ipa)}/</dd>
@@ -127,10 +140,10 @@ def render_card(entry: Entry, show_tags: bool, lang: str) -> str:
     """
 
 
-def render_page(dictionary: Dictionary, query: str, selected_tag: str, lang: str) -> str:
+def render_page(dictionary: Dictionary, query: str, selected_tag: str, lang: Literal["es", "en"]) -> str:
     """Render search controls and the matching entries."""
     copy = COPY[lang]
-    entries = list(dictionary.search(query or None, selected_tag or None))
+    entries = list(dictionary.search(query or None, selected_tag or None, lang=lang))
 
     tags = dictionary.tags()
     categories = [
@@ -178,18 +191,20 @@ def render_page(dictionary: Dictionary, query: str, selected_tag: str, lang: str
       <nav class="languages" aria-label="{copy["language"]}">{"".join(languages)}</nav>
     </header>
 
-    <form action="/" method="get" role="search">
-      <label for="query">{copy["search_label"]}</label>
-      <div class="search">
-        <input id="query" name="q" type="search" value="{escape(query)}"
-               placeholder="{copy["placeholder"]}" maxlength="200">
-        <input type="hidden" name="tag" value="{escape(selected_tag)}">
-        <input type="hidden" name="lang" value="{lang}">
-        <button type="submit">{copy["search"]}</button>
-      </div>
-    </form>
+    <div class="lookup">
+      <form action="/" method="get" role="search">
+        <label for="query">{copy["search_label"]}</label>
+        <div class="search">
+          <input id="query" name="q" type="search" value="{escape(query)}"
+                 placeholder="{copy["placeholder"]}" maxlength="200">
+          <input type="hidden" name="tag" value="{escape(selected_tag)}">
+          <input type="hidden" name="lang" value="{lang}">
+          <button type="submit">{copy["search"]}</button>
+        </div>
+      </form>
 
-    <nav aria-label="{copy["categories"]}">{"".join(filters)}</nav>
+      <nav class="categories" aria-label="{copy["categories"]}">{"".join(filters)}</nav>
+    </div>
 
     <section aria-labelledby="results-title">
       <h2 id="results-title">{escape(category_name)} <span>· {result_text}</span></h2>

@@ -3,7 +3,8 @@
 A Georgian phrasebook for Latin American Spanish speakers. Each entry shows
 the Georgian text, its Spanish meaning, an IPA transcription, and an
 approximate pronunciation guide broken into syllables. The website interface
-is available in English and Spanish.
+is available in English and Spanish. Each mode shows meanings and an
+approximate pronunciation guide in the selected language.
 
 ## Install and run
 
@@ -26,14 +27,14 @@ the dependencies. If you already have uv, you can also start the app with
 
 ## Use the dictionary
 
-Search by Georgian text or Spanish meaning, or select a category such as
-Numbers or Greetings. Search accepts partial matches, ignores case, and lets
+Search by Georgian text or by meaning in the selected language, or select
+a category such as Numbers or Greetings. Search accepts partial matches, ignores case, and lets
 you omit Spanish vowel accents. The English and Spanish buttons change the
 interface labels and preserve the current search and category.
 
 Use [FastAPI's interactive docs](http://127.0.0.1:8000/docs) to try the API:
 
-- `GET /entries` lists the 37 starter entries. Try `q=cuanto`, `q=cafe`, or
+- `GET /entries` lists the 38 starter entries. Try `q=cuanto`, `q=cafe`, or
   `q=მადლობა`. You can combine `q` with a tag such as `numbers`, `slang`,
   or `curse`.
 - `GET /tags` lists all available tags.
@@ -54,7 +55,10 @@ Use [FastAPI's interactive docs](http://127.0.0.1:8000/docs) to try the API:
 Hyphens separate syllables in the Spanish guide. `sh` represents /ʃ/, `dy`
 approximates /d͡ʒ/, `j` approximates /x/, `gh` represents /ɣ/, and an apostrophe
 marks an ejective consonant. Pronounce `v` with your lower lip against your
-upper teeth. Use the IPA for sounds that the Spanish guide approximates.
+upper teeth. In the English guide, `ah`, `eh`, `ee`, `oh`, and `oo`
+represent the five Georgian vowels. `kh` is the sound at the end of Scottish
+*loch*. Use the IPA or listen to the Georgian audio for sounds the guides
+can only approximate.
 
 [Peace Corps Georgian lessons](https://files.peacecorps.gov/multimedia/audio/languagelessons/georgia/GE_Georgian_Language_Lessons.pdf) ·
 [Standard Georgian, by Shosted and Chikovani](https://linguistics.berkeley.edu/phonlab/documents/2006/shosted_chikovani_11-23.pdf)
