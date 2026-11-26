@@ -38,4 +38,4 @@ jobs:
         run: uv run --locked --group test-browser playwright install --with-deps --only-shell chromium
 
       - name: Run browser tests
-        run: uv run --locked --group test-browser python -m pytest browser_tests --browser chromium
+        run: uv run --locked --group test-browser python -m pytest tests/browser --browser chromium

@@ -105,7 +105,7 @@ uv run --locked --group test-browser playwright install chromium
 mise run test-browser
 ```
 
-The browser tests start a temporary local FastAPI server and use generated
+The browser tests in `tests/browser/` start a temporary local FastAPI server and use generated
 silent WAV clips. They cover language and category navigation, search, mobile
 layout, and audio playback. `mise run test` runs the regular pytest suite.
 GitHub Actions runs both suites and Ruff on pull requests and pushes to main.
