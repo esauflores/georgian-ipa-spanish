@@ -26,6 +26,8 @@ class EntryInput(BaseModel):
     ipa: Text
     pronunciation: Text
     tags: tuple[Text, ...] = ()
+    english: Text | None = None
+    english_pronunciation: Text | None = None
 
 
 def create_app(path: Path = Path("entries.json")) -> FastAPI:
@@ -58,7 +60,7 @@ def create_app(path: Path = Path("entries.json")) -> FastAPI:
         q: Annotated[str | None, Query(max_length=200)] = None,
         tag: Annotated[str | None, Query(min_length=1, max_length=100)] = None,
     ):
-        """Filter entries by Georgian text, Spanish meaning, or tag."""
+        """Filter entries by Georgian text, translation, or tag."""
         return list(load_dictionary().search(q, tag))
 
     @api.get("/tags")
