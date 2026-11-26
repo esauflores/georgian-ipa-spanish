@@ -46,7 +46,7 @@ def test_api_loads_starter_entries(tmp_path):
     client = TestClient(create_app(tmp_path / "entries.json"))
     response = client.get("/entries")
     assert response.status_code == 200
-    assert len(response.json()) == 37
+    assert len(response.json()) == 38
     assert all(entry["english"] and entry["english_pronunciation"] for entry in response.json())
 
 
@@ -122,7 +122,7 @@ def test_homepage_lists_phrases_and_escapes_new_entries(tmp_path):
     response = client.get("/")
     assert response.status_code == 200
     assert response.headers["content-type"].startswith("text/html")
-    assert response.text.count("<li>") == 38
+    assert response.text.count("<li>") == 39
     assert "გამარჯობა" in response.text
     assert "&lt;Leche&gt;" in response.text
     assert "<Leche>" not in response.text

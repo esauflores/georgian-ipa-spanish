@@ -165,6 +165,17 @@
     "english_pronunciation": "gah-ee-meh-oh-reht, too sheh-ee-dzleh-bah"
   },
   {
+    "georgian": "მოვწიოთ!",
+    "spanish": "¡Vamos a fumar!",
+    "ipa": "mɔvt͡sʼiɔtʰ",
+    "pronunciation": "mov-ts’i-ot",
+    "tags": [
+      "communication"
+    ],
+    "english": "Let's smoke!",
+    "english_pronunciation": "mohv-ts’ee-oht"
+  },
+  {
     "georgian": "ეს რა არის?",
     "spanish": "¿Qué es esto?",
     "ipa": "ɛs rɑ ɑris",
@@ -256,15 +267,15 @@
     "english_pronunciation": "nah-boh-zah-roh, sheh-geh-tsee, k’leh-oh"
   },
   {
-    "georgian": "მე მევასება",
+    "georgian": "მევასება",
     "spanish": "Me gusta (coloquial)",
-    "ipa": "mɛ mɛvɑsɛbɑ",
-    "pronunciation": "me me-va-se-ba",
+    "ipa": "mɛvɑsɛbɑ",
+    "pronunciation": "me-va-se-ba",
     "tags": [
       "slang"
     ],
     "english": "I like it (colloquial)",
-    "english_pronunciation": "meh meh-vah-seh-bah"
+    "english_pronunciation": "meh-vah-seh-bah"
   },
   {
     "georgian": "მაგრად",

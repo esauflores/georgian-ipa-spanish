@@ -34,7 +34,7 @@ interface labels and preserve the current search and category.
 
 Use [FastAPI's interactive docs](http://127.0.0.1:8000/docs) to try the API:
 
-- `GET /entries` lists the 37 starter entries. Try `q=cuanto`, `q=cafe`, or
+- `GET /entries` lists the 38 starter entries. Try `q=cuanto`, `q=cafe`, or
   `q=მადლობა`. You can combine `q` with a tag such as `numbers`, `slang`,
   or `curse`.
 - `GET /tags` lists all available tags.
