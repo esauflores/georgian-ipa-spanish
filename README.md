@@ -6,6 +6,12 @@ approximate pronunciation guide broken into syllables. The website interface
 is available in English and Spanish. Each mode shows meanings and an
 approximate pronunciation guide in the selected language.
 
+## Live dictionary
+
+[Open the Georgian dictionary](https://georgian-dictionary.esauflores.com/)
+
+![Georgian dictionary homepage in Spanish](docs/dictionary.png)
+
 ## Install and run
 
 Install [mise](https://mise.jdx.dev/installing-mise.html) on Windows, macOS, or
@@ -34,7 +40,7 @@ interface labels and preserve the current search and category.
 
 Use [FastAPI's interactive docs](http://127.0.0.1:8000/docs) to try the API:
 
-- `GET /entries` lists the 38 starter entries. Try `q=cuanto`, `q=cafe`, or
+- `GET /entries` lists the 36 starter entries. Try `q=cuanto`, `q=cafe`, or
   `q=მადლობა`. You can combine `q` with a tag such as `numbers`, `slang`,
   or `curse`.
 - `GET /tags` lists all available tags.
@@ -103,3 +109,18 @@ The browser tests start a temporary local FastAPI server and use generated
 silent WAV clips. They cover language and category navigation, search, mobile
 layout, and audio playback. `mise run test` runs the regular pytest suite.
 GitHub Actions runs both suites and Ruff on pull requests and pushes to main.
+
+## Railway deployment
+
+[.railway/railway.ts](.railway/railway.ts) defines both dictionary services in
+the Railway `demos` project's `production` environment. Railway deploys code
+from each service's GitHub branch. To change the service configuration, link
+the Railway CLI to that environment, install the configuration SDK, and
+preview the changes from the repository root.
+
+```sh
+(cd .railway && bun install --frozen-lockfile)
+railway config plan
+```
+
+Run `railway config apply` after reviewing the plan.

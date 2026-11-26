@@ -1,0 +1,9 @@
+{
+  "name": "georgian-dictionary-infrastructure",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.4.5",
+  "dependencies": {
+    "railway": "3.17.0"
+  }
+}
