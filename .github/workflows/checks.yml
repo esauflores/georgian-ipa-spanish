@@ -1,0 +1,41 @@
+name: Checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Lint, pytest, and Chromium
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
+        with:
+          version: "0.13.9"
+
+      - name: Install project and browser test dependencies
+        run: uv sync --locked --group test-browser
+
+      - name: Check lint and formatting
+        run: |
+          uv run --locked ruff check .
+          uv run --locked ruff format --check .
+
+      - name: Run pytest
+        run: uv run --locked python -m pytest
+
+      - name: Install headless Chromium and system dependencies
+        run: uv run --locked --group test-browser playwright install --with-deps --only-shell chromium
+
+      - name: Run browser tests
+        run: uv run --locked --group test-browser python -m pytest browser_tests --browser chromium

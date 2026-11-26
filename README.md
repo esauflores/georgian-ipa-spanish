@@ -89,3 +89,17 @@ requires no API key. Cards with a generated clip show an **Escuchar** or
 | `mise lint` | Checks Ruff lint and formatting |
 | `mise format` | Formats Python files with Ruff |
 | `mise generate-audio` | Generates missing Georgian WAV clips with Piper |
+
+## Browser tests
+
+Install Chromium once, then run the optional Playwright suite:
+
+```sh
+uv run --locked --group test-browser playwright install chromium
+mise run test-browser
+```
+
+The browser tests start a temporary local FastAPI server and use generated
+silent WAV clips. They cover language and category navigation, search, mobile
+layout, and audio playback. `mise run test` runs the regular pytest suite.
+GitHub Actions runs both suites and Ruff on pull requests and pushes to main.

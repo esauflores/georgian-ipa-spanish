@@ -20,3 +20,7 @@ run = "uv run --locked ruff format ."
 [tasks.generate-audio]
 description = "Generate Georgian pronunciation clips with Piper"
 run = "uv run --locked --group audio python -m scripts.generate_audio"
+
+[tasks.test-browser]
+description = "Run the dictionary browser tests in Chromium"
+run = "uv run --locked --group test-browser python -m pytest browser_tests --browser chromium"
