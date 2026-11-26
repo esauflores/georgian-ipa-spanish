@@ -47,6 +47,7 @@ def test_api_loads_starter_entries(tmp_path):
     response = client.get("/entries")
     assert response.status_code == 200
     assert len(response.json()) == 37
+    assert all(entry["english"] and entry["english_pronunciation"] for entry in response.json())
 
 
 def test_api_searches_in_spanish(tmp_path):
@@ -76,7 +77,9 @@ def test_api_saves_and_reloads_a_new_entry(tmp_path):
     }
     assert client.post("/entries", json=entry).status_code == 201
     restarted = TestClient(create_app(path))
-    assert restarted.get("/entries", params={"q": "leche"}).json() == [{**entry, "tags": []}]
+    assert restarted.get("/entries", params={"q": "leche"}).json() == [
+        {**entry, "tags": [], "english": None, "english_pronunciation": None}
+    ]
 
 
 def test_api_rejects_missing_fields(tmp_path):
@@ -143,16 +146,28 @@ def test_homepage_shows_empty_state(tmp_path):
     assert "No se encontraron entradas." in response.text
 
 
-def test_english_interface_preserves_spanish_entries_and_filters(tmp_path):
+@pytest.mark.parametrize(
+    "lang, query, meaning, guide, other_meaning, other_guide",
+    [
+        ("en", "zero", "Zero (0)", "noo-lee", "Cero (0)", "nu-li"),
+        ("es", "cero", "Cero (0)", "nu-li", "Zero (0)", "noo-lee"),
+    ],
+)
+def test_homepage_uses_selected_language(tmp_path, lang, query, meaning, guide, other_meaning, other_guide):
     client = TestClient(create_app(tmp_path / "entries.json"))
-    response = client.get("/", params={"q": "cero", "tag": "numbers", "lang": "en"})
+    response = client.get("/", params={"q": query, "tag": "numbers", "lang": lang})
     assert response.status_code == 200
-    assert '<html lang="en">' in response.text
-    assert "<h1>Georgian dictionary</h1>" in response.text
-    assert "Numbers <span>· 1 entry" in response.text
-    assert 'lang="es">Cero (0)</p>' in response.text
-    assert 'href="/?q=cero&amp;tag=numbers" lang="es"' in response.text
-    assert 'href="/?lang=en&amp;q=cero"' in response.text
+    assert f'<html lang="{lang}">' in response.text
+    assert response.text.count("<li>") == 1
+    assert f'lang="{lang}">{meaning}</p>' in response.text
+    assert f'aria-label="{guide}"' in response.text
+    assert other_meaning not in response.text
+    assert f'aria-label="{other_guide}"' not in response.text
+
+    other_query = "cero" if lang == "en" else "zero"
+    mismatched = client.get("/", params={"q": other_query, "tag": "numbers", "lang": lang})
+    assert "<li>" not in mismatched.text
+    assert client.get("/entries", params={"q": query}).json()[0]["georgian"] == "ნული"
 
 
 def test_homepage_offers_audio_only_for_available_clips(tmp_path, monkeypatch):

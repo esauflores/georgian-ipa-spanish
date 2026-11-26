@@ -2,6 +2,7 @@
 
 from collections.abc import Iterable, Iterator
 from dataclasses import dataclass
+from typing import Literal
 from unicodedata import normalize
 
 
@@ -14,12 +15,18 @@ class Entry:
     ipa: str
     pronunciation: str
     tags: tuple[str, ...] = ()
+    english: str | None = None
+    english_pronunciation: str | None = None
 
     def __post_init__(self):
         """Reject missing or blank fields."""
         for field in (self.georgian, self.spanish, self.ipa, self.pronunciation):
             if not isinstance(field, str) or not field.strip():
                 raise ValueError("Completa los cuatro campos.")
+
+        for field in (self.english, self.english_pronunciation):
+            if field is not None and (not isinstance(field, str) or not field.strip()):
+                raise ValueError("Los campos en inglés deben contener texto.")
 
         if not isinstance(self.tags, (tuple, list)) or any(
             not isinstance(tag, str) or not tag.strip() for tag in self.tags
@@ -40,12 +47,18 @@ def search_key(value: str) -> str:
 
 
 class Dictionary:
-    """Keep entries and match Georgian words or Spanish meanings."""
+    """Keep entries and match Georgian words or translations."""
 
     def __init__(self, entries: Iterable[Entry] = ()):
         self.entries = list(entries)
 
-    def search(self, query: str | None = None, tag: str | None = None) -> Iterator[Entry]:
+    def search(
+        self,
+        query: str | None = None,
+        tag: str | None = None,
+        *,
+        lang: Literal["es", "en"] | None = None,
+    ) -> Iterator[Entry]:
         """Yield entries matching the given text and tag."""
         key = search_key(query) if query is not None else None
         if key == "":
@@ -56,7 +69,12 @@ class Dictionary:
         for entry in self.entries:
             if tag is not None and tag not in entry.tags:
                 continue
-            if key is None or any(key in search_key(value) for value in (entry.georgian, entry.spanish)):
+            search_fields = (
+                entry.georgian,
+                entry.spanish if lang != "en" else None,
+                entry.english if lang != "es" else None,
+            )
+            if key is None or any(key in search_key(value) for value in search_fields if value is not None):
                 yield entry
 
     def tags(self) -> list[str]:

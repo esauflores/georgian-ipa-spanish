@@ -6,7 +6,9 @@
     "pronunciation": "ga-mar-dyo-ba",
     "tags": [
       "greetings"
-    ]
+    ],
+    "english": "Hello",
+    "english_pronunciation": "gah-mahr-joh-bah"
   },
   {
     "georgian": "მადლობა",
@@ -15,7 +17,9 @@
     "pronunciation": "mad-lo-ba",
     "tags": [
       "basics"
-    ]
+    ],
+    "english": "Thank you",
+    "english_pronunciation": "mahd-loh-bah"
   },
   {
     "georgian": "კი",
@@ -24,7 +28,9 @@
     "pronunciation": "k’i",
     "tags": [
       "basics"
-    ]
+    ],
+    "english": "Yes",
+    "english_pronunciation": "k’ee"
   },
   {
     "georgian": "არა",
@@ -33,7 +39,9 @@
     "pronunciation": "a-ra",
     "tags": [
       "basics"
-    ]
+    ],
+    "english": "No",
+    "english_pronunciation": "ah-rah"
   },
   {
     "georgian": "კარგი",
@@ -42,7 +50,9 @@
     "pronunciation": "k’ar-gui",
     "tags": [
       "basics"
-    ]
+    ],
+    "english": "Okay / All right",
+    "english_pronunciation": "k’ahr-gee"
   },
   {
     "georgian": "ბოდიში",
@@ -51,7 +61,9 @@
     "pronunciation": "bo-di-shi",
     "tags": [
       "basics"
-    ]
+    ],
+    "english": "Sorry",
+    "english_pronunciation": "boh-dee-shee"
   },
   {
     "georgian": "უკაცრავად",
@@ -60,7 +72,9 @@
     "pronunciation": "u-k’a-tsra-vad",
     "tags": [
       "basics"
-    ]
+    ],
+    "english": "Excuse me",
+    "english_pronunciation": "oo-k’ahts-rah-vahd"
   },
   {
     "georgian": "ნახვამდის",
@@ -69,7 +83,9 @@
     "pronunciation": "na-jvam-dis",
     "tags": [
       "greetings"
-    ]
+    ],
+    "english": "Goodbye",
+    "english_pronunciation": "nah-khvahm-dees"
   },
   {
     "georgian": "როგორ ხართ?",
@@ -78,7 +94,9 @@
     "pronunciation": "ro-gor jart",
     "tags": [
       "greetings"
-    ]
+    ],
+    "english": "How are you?",
+    "english_pronunciation": "roh-gohr khahrt"
   },
   {
     "georgian": "კარგად ვარ, მადლობა.",
@@ -87,7 +105,9 @@
     "pronunciation": "k’ar-gad var, mad-lo-ba",
     "tags": [
       "greetings"
-    ]
+    ],
+    "english": "I'm fine, thank you.",
+    "english_pronunciation": "k’ahr-gahd vahr, mahd-loh-bah"
   },
   {
     "georgian": "რა გქვიათ?",
@@ -96,7 +116,9 @@
     "pronunciation": "ra gkvi-at",
     "tags": [
       "introductions"
-    ]
+    ],
+    "english": "What's your name?",
+    "english_pronunciation": "rah gkvee-aht"
   },
   {
     "georgian": "მე მქვია …",
@@ -105,7 +127,9 @@
     "pronunciation": "me mkvi-a",
     "tags": [
       "introductions"
-    ]
+    ],
+    "english": "My name is…",
+    "english_pronunciation": "meh mkvee-ah"
   },
   {
     "georgian": "ქართული არ ვიცი.",
@@ -114,7 +138,9 @@
     "pronunciation": "kar-tu-li ar vi-tsi",
     "tags": [
       "communication"
-    ]
+    ],
+    "english": "I don't speak Georgian.",
+    "english_pronunciation": "kahr-too-lee ahr vee-tsee"
   },
   {
     "georgian": "ვერ გავიგე.",
@@ -123,7 +149,9 @@
     "pronunciation": "ver ga-vi-gue",
     "tags": [
       "communication"
-    ]
+    ],
+    "english": "I didn't understand.",
+    "english_pronunciation": "vehr gah-vee-geh"
   },
   {
     "georgian": "გაიმეორეთ, თუ შეიძლება.",
@@ -132,7 +160,9 @@
     "pronunciation": "ga-i-me-o-ret, tu she-i-dzle-ba",
     "tags": [
       "communication"
-    ]
+    ],
+    "english": "Could you repeat that, please?",
+    "english_pronunciation": "gah-ee-meh-oh-reht, too sheh-ee-dzleh-bah"
   },
   {
     "georgian": "ეს რა არის?",
@@ -141,7 +171,9 @@
     "pronunciation": "es ra a-ris",
     "tags": [
       "basics"
-    ]
+    ],
+    "english": "What is this?",
+    "english_pronunciation": "ehs rah ah-rees"
   },
   {
     "georgian": "ეს რა ღირს?",
@@ -150,7 +182,9 @@
     "pronunciation": "es ra ghirs",
     "tags": [
       "shopping"
-    ]
+    ],
+    "english": "How much does this cost?",
+    "english_pronunciation": "ehs rah gheers"
   },
   {
     "georgian": "სად არის ტუალეტი?",
@@ -159,7 +193,9 @@
     "pronunciation": "sad a-ris t’u-a-le-t’i",
     "tags": [
       "directions"
-    ]
+    ],
+    "english": "Where is the bathroom?",
+    "english_pronunciation": "sahd ah-rees t’oo-ah-leh-t’ee"
   },
   {
     "georgian": "ერთი ყავა, თუ შეიძლება.",
@@ -168,7 +204,9 @@
     "pronunciation": "er-ti k’a-va, tu she-i-dzle-ba",
     "tags": [
       "food"
-    ]
+    ],
+    "english": "One coffee, please.",
+    "english_pronunciation": "ehr-tee k’ah-vah, too sheh-ee-dzleh-bah"
   },
   {
     "georgian": "ანგარიში, თუ შეიძლება.",
@@ -177,7 +215,9 @@
     "pronunciation": "an-ga-ri-shi, tu she-i-dzle-ba",
     "tags": [
       "food"
-    ]
+    ],
+    "english": "The check, please.",
+    "english_pronunciation": "ahn-gah-ree-shee, too sheh-ee-dzleh-bah"
   },
   {
     "georgian": "ყლე",
@@ -187,7 +227,9 @@
     "tags": [
       "curse",
       "slang"
-    ]
+    ],
+    "english": "Dick (vulgar, literal or insult)",
+    "english_pronunciation": "k’leh"
   },
   {
     "georgian": "ყლეო",
@@ -197,7 +239,9 @@
     "tags": [
       "curse",
       "slang"
-    ]
+    ],
+    "english": "You dick! (very vulgar)",
+    "english_pronunciation": "k’leh-oh"
   },
   {
     "georgian": "ნაბოზარო, შეგეცი, ყლეო!",
@@ -207,7 +251,9 @@
     "tags": [
       "curse",
       "slang"
-    ]
+    ],
+    "english": "You bastard, fuck you, you dick! (very vulgar)",
+    "english_pronunciation": "nah-boh-zah-roh, sheh-geh-tsee, k’leh-oh"
   },
   {
     "georgian": "მე მევასება",
@@ -216,7 +262,9 @@
     "pronunciation": "me me-va-se-ba",
     "tags": [
       "slang"
-    ]
+    ],
+    "english": "I like it (colloquial)",
+    "english_pronunciation": "meh meh-vah-seh-bah"
   },
   {
     "georgian": "მაგრად",
@@ -225,7 +273,9 @@
     "pronunciation": "ma-grad",
     "tags": [
       "slang"
-    ]
+    ],
+    "english": "A lot / Very much (colloquial)",
+    "english_pronunciation": "mah-grahd"
   },
   {
     "georgian": "მაგარია!",
@@ -234,7 +284,9 @@
     "pronunciation": "ma-ga-ri-a",
     "tags": [
       "slang"
-    ]
+    ],
+    "english": "That's awesome! / That's great!",
+    "english_pronunciation": "mah-gah-ree-ah"
   },
   {
     "georgian": "ნული",
@@ -243,7 +295,9 @@
     "pronunciation": "nu-li",
     "tags": [
       "numbers"
-    ]
+    ],
+    "english": "Zero (0)",
+    "english_pronunciation": "noo-lee"
   },
   {
     "georgian": "ერთი",
@@ -252,7 +306,9 @@
     "pronunciation": "er-ti",
     "tags": [
       "numbers"
-    ]
+    ],
+    "english": "One (1)",
+    "english_pronunciation": "ehr-tee"
   },
   {
     "georgian": "ორი",
@@ -261,7 +317,9 @@
     "pronunciation": "o-ri",
     "tags": [
       "numbers"
-    ]
+    ],
+    "english": "Two (2)",
+    "english_pronunciation": "oh-ree"
   },
   {
     "georgian": "სამი",
@@ -270,7 +328,9 @@
     "pronunciation": "sa-mi",
     "tags": [
       "numbers"
-    ]
+    ],
+    "english": "Three (3)",
+    "english_pronunciation": "sah-mee"
   },
   {
     "georgian": "ოთხი",
@@ -279,7 +339,9 @@
     "pronunciation": "o-tji",
     "tags": [
       "numbers"
-    ]
+    ],
+    "english": "Four (4)",
+    "english_pronunciation": "oh-tkhee"
   },
   {
     "georgian": "ხუთი",
@@ -288,7 +350,9 @@
     "pronunciation": "ju-ti",
     "tags": [
       "numbers"
-    ]
+    ],
+    "english": "Five (5)",
+    "english_pronunciation": "khoo-tee"
   },
   {
     "georgian": "ექვსი",
@@ -297,7 +361,9 @@
     "pronunciation": "e-kvsi",
     "tags": [
       "numbers"
-    ]
+    ],
+    "english": "Six (6)",
+    "english_pronunciation": "eh-kvsee"
   },
   {
     "georgian": "შვიდი",
@@ -306,7 +372,9 @@
     "pronunciation": "shvi-di",
     "tags": [
       "numbers"
-    ]
+    ],
+    "english": "Seven (7)",
+    "english_pronunciation": "shvee-dee"
   },
   {
     "georgian": "რვა",
@@ -315,7 +383,9 @@
     "pronunciation": "rva",
     "tags": [
       "numbers"
-    ]
+    ],
+    "english": "Eight (8)",
+    "english_pronunciation": "rvah"
   },
   {
     "georgian": "ცხრა",
@@ -324,7 +394,9 @@
     "pronunciation": "tsjra",
     "tags": [
       "numbers"
-    ]
+    ],
+    "english": "Nine (9)",
+    "english_pronunciation": "tskhrah"
   },
   {
     "georgian": "ათი",
@@ -333,6 +405,8 @@
     "pronunciation": "a-ti",
     "tags": [
       "numbers"
-    ]
+    ],
+    "english": "Ten (10)",
+    "english_pronunciation": "ah-tee"
   }
 ]
