@@ -153,3 +153,21 @@ def test_english_interface_preserves_spanish_entries_and_filters(tmp_path):
     assert 'lang="es">Cero (0)</p>' in response.text
     assert 'href="/?q=cero&amp;tag=numbers" lang="es"' in response.text
     assert 'href="/?lang=en&amp;q=cero"' in response.text
+
+
+def test_homepage_offers_audio_only_for_available_clips(tmp_path, monkeypatch):
+    from dictionary import page
+    from dictionary.audio import clip_name
+
+    monkeypatch.setattr(page, "AUDIO_DIR", tmp_path)
+    filename = clip_name("გამარჯობა")
+    (tmp_path / filename).touch()
+
+    client = TestClient(create_app(tmp_path / "entries.json"))
+    english = client.get("/", params={"lang": "en"})
+    spanish = client.get("/")
+    assert english.text.count("data-audio=") == 1
+    assert f'data-audio="/static/audio/{filename}"' in english.text
+    assert ">Listen</button>" in english.text
+    assert ">Escuchar</button>" in spanish.text
+    assert client.get("/static/audio.js").status_code == 200

@@ -1,0 +1,22 @@
+[tools]
+uv = "0.13.9"
+
+[tasks.dev]
+description = "Start the FastAPI development server"
+run = "uv run --locked uvicorn main:app --app-dir src --reload --reload-dir src"
+
+[tasks.test]
+description = "Run the test suite"
+run = "uv run --locked python -m pytest"
+
+[tasks.lint]
+description = "Check Python lint and formatting"
+run = ["uv run --locked ruff check .", "uv run --locked ruff format --check ."]
+
+[tasks.format]
+description = "Format Python files"
+run = "uv run --locked ruff format ."
+
+[tasks.generate-audio]
+description = "Generate Georgian pronunciation clips with Piper"
+run = "uv run --locked --group audio python -m scripts.generate_audio"

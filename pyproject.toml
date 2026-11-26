@@ -10,6 +10,9 @@ dependencies = [
 ]
 
 [dependency-groups]
+audio = [
+    "piper-tts>=1.8.0",
+]
 dev = [
     "httpx2",
     "pytest",

@@ -3,6 +3,7 @@
 from html import escape
 from urllib.parse import urlencode
 
+from .audio import AUDIO_DIR, clip_name
 from .dictionary import Dictionary, Entry
 
 COPY = {
@@ -14,6 +15,8 @@ COPY = {
         "categories": "Categorías",
         "all": "Todas",
         "sound": "Cómo suena",
+        "listen": "Escuchar",
+        "audio_error": "No se pudo reproducir el audio.",
         "entry": "entrada",
         "entries": "entradas",
         "empty": "No se encontraron entradas.",
@@ -28,6 +31,8 @@ COPY = {
         "categories": "Categories",
         "all": "All",
         "sound": "Spanish pronunciation",
+        "listen": "Listen",
+        "audio_error": "The audio could not be played.",
         "entry": "entry",
         "entries": "entries",
         "empty": "No entries found.",
@@ -71,6 +76,19 @@ def page_url(lang: str, query: str = "", tag: str = "") -> str:
     return f"/?{params}" if params else "/"
 
 
+def render_audio_button(entry: Entry, lang: str) -> str:
+    """Offer playback when the local WAV exists."""
+    filename = clip_name(entry.georgian)
+    if not (AUDIO_DIR / filename).is_file():
+        return ""
+
+    label = COPY[lang]["listen"]
+    return (
+        f'<button class="listen" type="button" data-audio="/static/audio/{filename}" '
+        f'aria-label="{label}: {escape(entry.georgian)}" aria-pressed="false">{label}</button>'
+    )
+
+
 def render_card(entry: Entry, show_tags: bool, lang: str) -> str:
     """Render an entry with its pronunciation and categories."""
     tags = "".join(f'<span class="tag">{escape(tag_label(tag, lang))}</span>' for tag in entry.tags if show_tags)
@@ -85,7 +103,10 @@ def render_card(entry: Entry, show_tags: bool, lang: str) -> str:
       <li>
         <article class="card">
           {tag_row}
-          <h3 lang="ka">{escape(entry.georgian)}</h3>
+          <div class="card-title">
+            <h3 lang="ka">{escape(entry.georgian)}</h3>
+            {render_audio_button(entry, lang)}
+          </div>
           <p class="meaning" lang="es">{escape(entry.spanish)}</p>
           <dl>
             <div>
@@ -146,6 +167,7 @@ def render_page(dictionary: Dictionary, query: str, selected_tag: str, lang: str
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{copy["title"]}</title>
   <link rel="stylesheet" href="/static/dictionary.css">
+  <script src="/static/audio.js" defer></script>
 </head>
 <body>
   <main>
@@ -169,6 +191,7 @@ def render_page(dictionary: Dictionary, query: str, selected_tag: str, lang: str
 
     <section aria-labelledby="results-title">
       <h2 id="results-title">{escape(category_name)} <span>· {result_text}</span></h2>
+      <p class="audio-status" role="status" data-error="{copy["audio_error"]}"></p>
       {results}
     </section>
   </main>

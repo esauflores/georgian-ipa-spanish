@@ -3,3 +3,6 @@ __pycache__/
 .ruff_cache/
 .venv/
 entries.json
+.env
+/.piper/
+/src/static/audio/
