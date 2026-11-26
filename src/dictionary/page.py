@@ -104,10 +104,12 @@ def render_card(entry: Entry, show_tags: bool, lang: str) -> str:
         <article class="card">
           {tag_row}
           <div class="card-title">
-            <h3 lang="ka">{escape(entry.georgian)}</h3>
+            <div class="card-text">
+              <h3 lang="ka">{escape(entry.georgian)}</h3>
+              <p class="meaning" lang="es">{escape(entry.spanish)}</p>
+            </div>
             {render_audio_button(entry, lang)}
           </div>
-          <p class="meaning" lang="es">{escape(entry.spanish)}</p>
           <dl>
             <div>
               <dt>{COPY[lang]["sound"]}</dt>

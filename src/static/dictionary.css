@@ -75,7 +75,7 @@ button {
 }
 
 :focus-visible {
-  outline: 3px solid #2855a8;
+  outline: 3px solid var(--accent);
   outline-offset: 3px;
 }
 
@@ -167,7 +167,7 @@ section h2 span {
 }
 
 .meaning {
-  margin: 0 0 1rem;
+  margin: 0;
 }
 
 .tag {
@@ -236,7 +236,12 @@ dd {
   align-items: baseline;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: .25rem .75rem;
+  gap: .5rem .75rem;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  min-width: 0;
 }
 
 .listen {
