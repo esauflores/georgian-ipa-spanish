@@ -46,7 +46,7 @@ def test_api_loads_starter_entries(tmp_path):
     client = TestClient(create_app(tmp_path / "entries.json"))
     response = client.get("/entries")
     assert response.status_code == 200
-    assert len(response.json()) == 36
+    assert len(response.json()) == 37
 
 
 def test_api_searches_in_spanish(tmp_path):
@@ -89,7 +89,7 @@ def test_api_rejects_missing_fields(tmp_path):
 def test_api_combines_text_and_tag_filters(tmp_path):
     client = TestClient(create_app(tmp_path / "entries.json"))
     assert len(client.get("/entries", params={"tag": "curse"}).json()) == 3
-    assert len(client.get("/entries", params={"tag": "numbers"}).json()) == 10
+    assert len(client.get("/entries", params={"tag": "numbers"}).json()) == 11
     matches = client.get("/entries", params={"q": "idiota", "tag": "curse"}).json()
     assert {entry["georgian"] for entry in matches} == {"ყლე", "ყლეო"}
     assert "curse" in client.get("/tags").json()
@@ -123,7 +123,37 @@ def test_homepage_lists_phrases_and_escapes_new_entries(tmp_path):
     response = client.get("/")
     assert response.status_code == 200
     assert response.headers["content-type"].startswith("text/html")
-    assert response.text.count("<li>") == 37
+    assert response.text.count("<li>") == 38
     assert "გამარჯობა" in response.text
     assert "&lt;Leche&gt;" in response.text
     assert "<Leche>" not in response.text
+
+
+def test_homepage_combines_search_with_category(tmp_path):
+    client = TestClient(create_app(tmp_path / "entries.json"))
+    response = client.get("/", params={"q": "uno", "tag": "numbers"})
+    assert response.status_code == 200
+    assert "1 entrada" in response.text
+    assert response.text.count("<li>") == 1
+    assert "ერთი" in response.text
+    assert 'aria-current="true">Números' in response.text
+    assert client.get("/static/dictionary.css").status_code == 200
+
+
+def test_homepage_shows_empty_state(tmp_path):
+    client = TestClient(create_app(tmp_path / "entries.json"))
+    response = client.get("/", params={"q": "sin coincidencias"})
+    assert response.status_code == 200
+    assert "No se encontraron entradas." in response.text
+
+
+def test_english_interface_preserves_spanish_entries_and_filters(tmp_path):
+    client = TestClient(create_app(tmp_path / "entries.json"))
+    response = client.get("/", params={"q": "cero", "tag": "numbers", "lang": "en"})
+    assert response.status_code == 200
+    assert '<html lang="en">' in response.text
+    assert "<h1>Georgian dictionary</h1>" in response.text
+    assert "Numbers <span>· 1 entry" in response.text
+    assert 'lang="es">Cero (0)</p>' in response.text
+    assert 'href="/?q=cero&amp;tag=numbers" lang="es"' in response.text
+    assert 'href="/?lang=en&amp;q=cero"' in response.text

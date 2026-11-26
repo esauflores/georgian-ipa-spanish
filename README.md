@@ -15,10 +15,10 @@ uv sync --locked
 uv run python src/main.py
 ```
 
-Abre [el diccionario](http://127.0.0.1:8000/) para ver todas las entradas.
+Abre [el diccionario](http://127.0.0.1:8000/) para buscar y filtrar las entradas por categoría.
 Para buscar o agregar expresiones, abre [la interfaz interactiva de FastAPI](http://127.0.0.1:8000/docs).
 En `GET /entries`, elige **Try it out**. Ejecuta sin una consulta para ver
-las 36 entradas de `data/starter.json` o escribe `cuanto`, `cafe` o `მადლობა` en el campo `q`.
+las 37 entradas de `data/starter.json` o escribe `cuanto`, `cafe` o `მადლობა` en el campo `q`.
 La búsqueda admite fragmentos, ignora mayúsculas y permite omitir las tildes.
 
 Usa `GET /tags` para ver las etiquetas y el campo `tag` en

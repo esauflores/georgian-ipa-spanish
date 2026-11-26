@@ -1,18 +1,20 @@
 """Serve the Georgian–Spanish phrasebook with FastAPI."""
 
-from html import escape
 from pathlib import Path
 from threading import Lock
-from typing import Annotated
+from typing import Annotated, Literal
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, StringConstraints
 
 from dictionary.dictionary import Dictionary, Entry
+from dictionary.page import render_page
 from dictionary.storage import JsonStore
 
 STARTER_DATA = Path(__file__).resolve().parents[1] / "data" / "starter.json"
+STATIC_DIR = Path(__file__).resolve().parent / "static"
 Text = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1)]
 
 
@@ -29,6 +31,7 @@ class EntryInput(BaseModel):
 def create_app(path: Path = Path("entries.json")) -> FastAPI:
     """Create an API backed by the given dictionary file."""
     api = FastAPI(title="Georgian–Spanish IPA Dictionary")
+    api.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
     store = JsonStore(path)
     write_lock = Lock()
 
@@ -42,23 +45,13 @@ def create_app(path: Path = Path("entries.json")) -> FastAPI:
             raise HTTPException(500, "No se pudo leer el diccionario.") from error
 
     @api.get("/", response_class=HTMLResponse)
-    def index() -> str:
-        """Display the dictionary as a plain HTML list."""
-        items = []
-        for entry in load_dictionary().entries:
-            tags = f" ({escape(', '.join(entry.tags))})" if entry.tags else ""
-            items.append(
-                f'<li><strong lang="ka">{escape(entry.georgian)}</strong>'
-                f" — {escape(entry.spanish)} — /{escape(entry.ipa)}/"
-                f" — {escape(entry.pronunciation)}{tags}</li>"
-            )
-        return (
-            '<!doctype html><html lang="es"><head><meta charset="utf-8">'
-            '<meta name="viewport" content="width=device-width, initial-scale=1">'
-            "<title>Diccionario georgiano–español</title></head><body>"
-            "<main><h1>Diccionario georgiano–español</h1>"
-            "<ul>" + "\n".join(items) + "</ul></main></body></html>"
-        )
+    def index(
+        q: Annotated[str, Query(max_length=200)] = "",
+        tag: Annotated[str, Query(max_length=100)] = "",
+        lang: Literal["es", "en"] = "es",
+    ) -> str:
+        """Display and filter the dictionary in a browser."""
+        return render_page(load_dictionary(), q.strip(), tag.strip().lower(), lang)
 
     @api.get("/entries", response_model=list[Entry])
     def list_entries(
