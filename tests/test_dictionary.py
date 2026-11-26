@@ -46,7 +46,7 @@ def test_api_loads_starter_entries(tmp_path):
     client = TestClient(create_app(tmp_path / "entries.json"))
     response = client.get("/entries")
     assert response.status_code == 200
-    assert len(response.json()) == 38
+    assert len(response.json()) == 36
     assert all(entry["english"] and entry["english_pronunciation"] for entry in response.json())
 
 
@@ -89,11 +89,11 @@ def test_api_rejects_missing_fields(tmp_path):
 
 def test_api_combines_text_and_tag_filters(tmp_path):
     client = TestClient(create_app(tmp_path / "entries.json"))
-    assert len(client.get("/entries", params={"tag": "curse"}).json()) == 3
+    assert client.get("/entries", params={"tag": "curse"}).json() == []
     assert len(client.get("/entries", params={"tag": "numbers"}).json()) == 11
-    matches = client.get("/entries", params={"q": "idiota", "tag": "curse"}).json()
-    assert {entry["georgian"] for entry in matches} == {"ყლე", "ყლეო"}
-    assert "curse" in client.get("/tags").json()
+    matches = client.get("/entries", params={"q": "cero", "tag": "numbers"}).json()
+    assert {entry["georgian"] for entry in matches} == {"ნული"}
+    assert "curse" not in client.get("/tags").json()
 
 
 def test_api_saves_normalized_tags(tmp_path):
@@ -122,7 +122,7 @@ def test_homepage_lists_phrases_and_escapes_new_entries(tmp_path):
     response = client.get("/")
     assert response.status_code == 200
     assert response.headers["content-type"].startswith("text/html")
-    assert response.text.count("<li>") == 39
+    assert response.text.count("<li>") == 37
     assert "გამარჯობა" in response.text
     assert "&lt;Leche&gt;" in response.text
     assert "<Leche>" not in response.text

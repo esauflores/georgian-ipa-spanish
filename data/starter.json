@@ -11,6 +11,17 @@
     "english_pronunciation": "gah-mahr-joh-bah"
   },
   {
+    "georgian": "პატარა",
+    "spanish": "Pequeño / pequeña",
+    "ipa": "pʼɑtʼɑrɑ",
+    "pronunciation": "p’a-t’a-ra",
+    "tags": [
+      "basics"
+    ],
+    "english": "Small / little",
+    "english_pronunciation": "p’ah-t’ah-rah"
+  },
+  {
     "georgian": "მადლობა",
     "spanish": "Gracias",
     "ipa": "mɑdlɔbɑ",
@@ -229,42 +240,6 @@
     ],
     "english": "The check, please.",
     "english_pronunciation": "ahn-gah-ree-shee, too sheh-ee-dzleh-bah"
-  },
-  {
-    "georgian": "ყლე",
-    "spanish": "Pene (vulgar) / idiota (insulto)",
-    "ipa": "qʼlɛ",
-    "pronunciation": "k’le",
-    "tags": [
-      "curse",
-      "slang"
-    ],
-    "english": "Dick (vulgar, literal or insult)",
-    "english_pronunciation": "k’leh"
-  },
-  {
-    "georgian": "ყლეო",
-    "spanish": "¡Idiota! (insulto muy vulgar)",
-    "ipa": "qʼlɛɔ",
-    "pronunciation": "k’le-o",
-    "tags": [
-      "curse",
-      "slang"
-    ],
-    "english": "You dick! (very vulgar)",
-    "english_pronunciation": "k’leh-oh"
-  },
-  {
-    "georgian": "ნაბოზარო, შეგეცი, ყლეო!",
-    "spanish": "¡Hijo de puta, que te jodan, imbécil! (muy vulgar)",
-    "ipa": "nɑbɔzɑrɔ ʃɛɡɛt͡si qʼlɛɔ",
-    "pronunciation": "na-bo-za-ro, she-gue-tsi, k’le-o",
-    "tags": [
-      "curse",
-      "slang"
-    ],
-    "english": "You bastard, fuck you, you dick! (very vulgar)",
-    "english_pronunciation": "nah-boh-zah-roh, sheh-geh-tsee, k’leh-oh"
   },
   {
     "georgian": "მევასება",
